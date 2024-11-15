@@ -1,5 +1,17 @@
-# DL_Project
+# Neural inverted index for fast and effective information retrieval
 
-Deep Learning Course
+## Table of Contents
+- [Introduction](#introduction)
+- [Installation](#installation)
 
-MSc in Artificial Intelligence and Robotics at Sapienza Università di Roma
+---
+
+## Introduction
+
+**Neural inverted index for fast and effective information retrieval** is project developed as part of the coursework for **Deep Learning** at **Sapienza Università di Roma**.
+
+---
+
+## Installation
+
+---
