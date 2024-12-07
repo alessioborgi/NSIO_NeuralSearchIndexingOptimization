@@ -13,3 +13,8 @@ In our approach we have tried three different approaches:
     \item \textbf{Hybrid}:
 \end{itemize}
 With this filtering procedure we are creating the real dataset $\mathcal{T}$, which will be the one used in the training phase. 
+
+\subsection{Distillation Approach}
+After the previous procedure, we may lose some information related to the choice of $\mathcal{k}$. In order to overcome this we want to explicitly model the relevance of various documents to a given query. This is performed by creating a Supervision Signal in the distillation task: $supsig_{t}^{dis} = (id_{t}, id_{1}, ..., id_{f})$.
+This Supervision Signal is a string composed by the concatenation of the identifier of the segment $id_{t}$ and the $f$ result given by another Ranking procedure $id_{1}, ..., id_{f}$.
+This process is expected to enable the model to acquire knowledge from the precise $id$ correpsondence with the text, and associate the pseudo-query to the list of most pertinent document identifier.
