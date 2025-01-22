@@ -1,0 +1,79 @@
+\section{Novelties}
+
+In this section, we present the novel contributions that collectively enhance the dataset—through both straightforward semantic, stopwords and num2text augmentation as well as a more advanced POS-MLM augmentation—and improve the efficiency of the model itself, particularly in training and memory usage, by means of Dynamic Pruning. We decide to apply these techniques to the whole dataset corpus, by having Semantic, Stopwords and Num2Text Augmentation to be applied to all the corpuses, while having POS-MLM Augmentation to be applied to only 10\% of the corpuses' phrases.
+
+
+
+
+
+
+
+
+\subsection{Semantic, Stopwords ans Num2Text Augmentation}
+Traditional DSI models commonly rely on a raw (or minimally processed corpus), which often incorporates stopwords and punctuation as well as numbers. These low-value tokens can consume model capacity without contributing actually to semantic.  In addition to these challenges, purely numerical tokens are often not well captured in semantic embedding spaces. Furthermore, frequent words and repeated terms may overwhelm the more meaningful tokens, leading to reduced retrieval effectiveness and, at the same time, make the model process useless words, thereby extending training.
+
+More in detail, the strategy we follow is:
+\begin{itemize}
+    \item \textbf{Stopword Removal:} By integrating established stopword and puctuation lists (using \texttt{nltk} library) and frequency-based heuristics, we remove non-informative words (e.g., ``the,'' ``and,'' ``or''). More practically, each token is compared against a set of known stopwords and punctuation. If the token is in this set, it is removed.
+    \item \textbf{ Num2Text Augmentation:} Numeric values (\textit{e.g.}, ``42'') are treated as discrete tokens and may lose contextual meaning if not converted into text. In practice, we transform (using the \texttt{inflect} library) numeric tokens into their textual representations (\textit{e.g.}, ``42'' $\to$ ``forty two'') so that the model can better capture semantic relationships involving numbers.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\subsection{POS-MLM Augmentation}
+DSI models under examination, often struggle to bridge the gap between document structure and the actual query intent. Techniques like Part-of-Speech (POS) tagging has proven effective for syntactic parsing \cite{toutanova2003feature}, while Masked Language Modeling (MLM) has become a cornerstone of learning contextualized representations \cite{devlin2018bert}. These approaches, however, are typically applied independently. The novel apprach we decide to follow consists in combining them.
+
+More formally, \textbf{POS-MLM Augmentation} synthesizes syntactic insights from POS tagging with the context-driven capabilities of MLM, consisting in the following steps:
+
+\begin{itemize}
+    \item \textbf{POS Tagging:} By leveraging on spaCy (a lexical and syntactic parser) we proceed to assign part-of-speech labels (NOUN, VERB, ADJ, etc.) to each token.  POS tags are used to identify tokens that have  "key syntactic roles", allowing to subsequently have a very structured roadmap. This will be employed after for subsequent masking.
+    \item \textbf{Selective Token Masking:} Tokens holding "key syntactic roles" (that in our case we decided to identify in all the verbs) are replaced with a placeholder token (e.g., \texttt{[MASK]}). In this way, the Language Model will be able to focus only on these masked tokens.
+    \item \textbf{Predictive Training (MLM):} The masked sequences are then processed by a pretrained Transformer model (e.g., \texttt{bert-base-uncased}), which infers the masked tokens. By leveraging the broader context, the MLM phase reconstructs syntactic structures, promoting a deeper understanding of semantic relationships.
+\end{itemize}
+
+The combined use of POS tagging and MLM leverages \textit{syntax-guided semantics} (POS-driven selection) and \textit{semantic contextualization of syntax} (MLM-based prediction). This dual focus enables more precise ranking of documents by their true structural and semantic relevance, thus improving \textit{relevance ordering}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Dynamic Pruning}
+
+When employed on large datasets such as MS-MARCO, DSI frameworks can become computationally expensive in both memory usage and runtime. Fixed or static pruning approaches can help mitigate resource usage but risk discarding critical parameters, thereby harming retrieval accuracy. In light of these considerations, we propose \textbf{Dynamic Pruning}, an adaptive method that combines real-time feature-importance evaluation with \textit{unstructured weight pruning} at the parameter level. Unstructured weight pruning specifically refers to removing individual weights (rather than entire filters or neurons) by setting those with the smallest magnitudes to zero, thereby reducing the model’s size without significantly affecting its representational capabilities. More in detail, we follow the following steps:
+\begin{itemize}
+    \item \textbf{Feature Scoring:} At every step, we have that the model computes importance indicators (e.g., from attention distributions). These scores guide which features are likely to contribute most to accurate retrieval. By deriving scores from the current query and document, the pruning process is better aligned with real-time demands, reducing the risk of removing essential information.
+    \item \textbf{Dynamic Cutoffs:} As a second step of the pipeline, we apply a context-sensitive threshold that prunes away low-value features while preserving high-impact parameters. During training, the smallest-magnitude weights (determined, in our case, by L1 norms) are selectively set to zero. In a nutshell, we prune 50\% of these low-magnitude weights on-the-fly.
+    \item \textbf{Iterative Refinement:} In order to make the whole process to be dynamic, ofver the course of training, the pruning thresholds and importance metrics are continuously updated. This ensures a balance between retaining vital parameters and eliminating redundant ones. 
+\end{itemize}
+
+By removing weights that contribute minimally to the model’s predictions, unstructured pruning significantly reduces computational and memory overhead without sacrificing retrieval accuracy. In our case, the application of Dynamic Pruning, coupled with Mixed Precision (16-bit) and Gradient Accumulation every 4 batches, we were able to cut-down the training time from more than 5 hours to just 45 minutes.  
