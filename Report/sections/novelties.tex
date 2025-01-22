@@ -1,5 +1,3 @@
-\section{Novelties}
-
 In this section, we present the novel contributions that collectively enhance the dataset—through both straightforward semantic, stopwords and num2text augmentation as well as a more advanced POS-MLM augmentation—and improve the efficiency of the model itself, particularly in training and memory usage, by means of Dynamic Pruning. We decide to apply these techniques to the whole dataset corpus, by having Semantic, Stopwords and Num2Text Augmentation to be applied to all the corpuses, while having POS-MLM Augmentation to be applied to only 10\% of the corpuses' phrases.
 
 
@@ -9,7 +7,7 @@ In this section, we present the novel contributions that collectively enhance th
 
 
 
-\subsection{Semantic, Stopwords ans Num2Text Augmentation}
+\subsubsection{Semantic, Stopwords ans Num2Text Augmentation}
 Traditional DSI models commonly rely on a raw (or minimally processed corpus), which often incorporates stopwords and punctuation as well as numbers. These low-value tokens can consume model capacity without contributing actually to semantic.  In addition to these challenges, purely numerical tokens are often not well captured in semantic embedding spaces. Furthermore, frequent words and repeated terms may overwhelm the more meaningful tokens, leading to reduced retrieval effectiveness and, at the same time, make the model process useless words, thereby extending training.
 
 More in detail, the strategy we follow is:
@@ -27,7 +25,7 @@ More in detail, the strategy we follow is:
 
 
 
-\subsection{POS-MLM Augmentation}
+\subsubsection{POS-MLM Augmentation}
 DSI models under examination, often struggle to bridge the gap between document structure and the actual query intent. Techniques like Part-of-Speech (POS) tagging has proven effective for syntactic parsing \cite{toutanova2003feature}, while Masked Language Modeling (MLM) has become a cornerstone of learning contextualized representations \cite{devlin2018bert}. These approaches, however, are typically applied independently. The novel apprach we decide to follow consists in combining them.
 
 More formally, \textbf{POS-MLM Augmentation} synthesizes syntactic insights from POS tagging with the context-driven capabilities of MLM, consisting in the following steps:
@@ -67,7 +65,7 @@ The combined use of POS tagging and MLM leverages \textit{syntax-guided semantic
 
 
 
-\subsection{Dynamic Pruning}
+\subsubsection{Dynamic Pruning}
 
 When employed on large datasets such as MS-MARCO, DSI frameworks can become computationally expensive in both memory usage and runtime. Fixed or static pruning approaches can help mitigate resource usage but risk discarding critical parameters, thereby harming retrieval accuracy. In light of these considerations, we propose \textbf{Dynamic Pruning}, an adaptive method that combines real-time feature-importance evaluation with \textit{unstructured weight pruning} at the parameter level. Unstructured weight pruning specifically refers to removing individual weights (rather than entire filters or neurons) by setting those with the smallest magnitudes to zero, thereby reducing the model’s size without significantly affecting its representational capabilities. More in detail, we follow the following steps:
 \begin{itemize}
