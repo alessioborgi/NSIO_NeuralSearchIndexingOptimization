@@ -15,6 +15,9 @@
 \usepackage{subfiles}
 \usepackage{fancyhdr}       % header
 \usepackage{graphicx}       % graphics
+\usepackage{algpseudocodex}
+\usepackage{algorithm}
+\usepackage{amsmath, amssymb}
 \graphicspath{{media/}}     % organize your images and other figures under media/ folder
 
 %Header
@@ -59,27 +62,10 @@
 
 
 \section{Introduction} \subfile{sections/intro.tex}
-\section{Dataset Generation} \subfile{sections/data.tex}
+\section{Dataset} \subfile{sections/data.tex}
 
 \section{Model} \subfile{sections/model.tex}
-
-\section{Document Representation Strategies}
-
-\section{Docid Representation for Retrieval}
-
-\section{Headings: first level}
-\label{sec:headings}
-See Section \ref{sec:headings}.
-
-\subsection{Headings: second level}
-
-\subsubsection{Headings: third level}
-
-\paragraph{Paragraph}
-
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
-\cite{pyserini}.
+\section{Training and Results} \subfile{sections/training.tex}
 
 The documentation for \verb+natbib+ may be found at
 \begin{center}
