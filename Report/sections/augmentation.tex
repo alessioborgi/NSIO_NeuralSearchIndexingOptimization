@@ -1,0 +1,23 @@
+In this section, we present a first part of the introduced novel contributions that collectively enhance the dataset—through both semantic, stopwords and num2text augmentation as well as a more advanced POS-MLM augmentation. We decide to apply these techniques to the whole dataset corpus, by having Semantic, Stopwords and Num2Text Augmentation to be applied to all the corpuses, while having POS-MLM Augmentation to be applied to only 10\% of the corpuses' phrases.
+
+\subsubsection{Semantic Augmentation: Stopwords and Num2Text}
+Traditional DSI models commonly rely on a raw (or minimally processed) corpus, which often incorporates stopwords and punctuation as well as numbers. These low-value tokens can consume model capacity without contributing actually to semantic. In addition, purely numerical tokens are often not well captured in semantic embedding spaces. Furthermore, frequent words and repeated terms may overwhelm the more meaningful tokens, leading to reduced retrieval effectiveness and, at the same time, make the model process useless words, thereby extending training.
+
+More in detail, the strategy we follow is:
+\begin{itemize}
+    \item \textbf{Stopword Removal:} By integrating established stopword and punctuation lists (using \texttt{nltk}) and frequency-based heuristics, we remove non-informative words (e.g., ``the,'' ``and,'' ``or''). Each token is compared against a set of known stopwords and punctuation. If the token is in this set, it is removed.
+    \item \textbf{Num2Text Augmentation:} Numeric values (\textit{e.g.}, ``42'') are treated as discrete tokens and may lose contextual meaning if not converted into text. In practice, we transform (using the \texttt{inflect} library) numeric tokens into their textual representations (\textit{e.g.}, ``42'' $\to$ ``forty two'') so that the model can better capture semantic relationships involving numbers.
+\end{itemize}
+
+\subsubsection{POS-MLM Augmentation}
+DSI models under examination often struggle to bridge the gap between document structure and actual query intent. Techniques like Part-of-Speech (POS) tagging have proven effective for syntactic parsing \cite{toutanova2003feature}, while Masked Language Modeling (MLM) has become a cornerstone of learning contextualized representations \cite{devlin2018bert}. Typically, these approaches are applied independently. Here we combine them in a novel manner.
+
+\textbf{POS-MLM Augmentation} synthesizes syntactic insights from POS tagging with the context-driven capabilities of MLM, consisting in:
+\begin{itemize}
+    \item \textbf{POS Tagging:} Using spaCy (a lexical and syntactic parser), we assign part-of-speech labels (NOUN, VERB, ADJ, etc.) to each token. POS tags are used to identify tokens that have key syntactic roles, enabling a structured roadmap for masking.
+    \item \textbf{Selective Token Masking:} Tokens holding key syntactic roles (here, verbs) are replaced with a placeholder token (e.g., \texttt{[MASK]}), so that the LM must focus on reconstructing them.
+    \item \textbf{Predictive Training (MLM):} The masked sequences are processed by a pretrained Transformer model (e.g., \texttt{bert-base-uncased}), which infers the masked tokens. By leveraging the broader context, MLM reconstructs syntactic structures and promotes a deeper understanding of semantic relationships.
+\end{itemize}
+
+This dual focus enables more precise ranking of documents by their structural and semantic relevance, thus improving \textit{relevance ordering}.
+

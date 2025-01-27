@@ -1,1 +1,20 @@
-Our main architecure is T5.
+\subsection{Model Architecture Novelties}
+
+We adopt T5 as our core architecture, but additionally optimize training and memory usage by applying three key techniques: \textbf{Dynamic Pruning}, \textbf{LoRA}, and \textbf{QLoRA}.
+
+\subsubsection{Dynamic Pruning}
+Large-scale DSI frameworks, especially when operating on extensive datasets like MS-MARCO, can consume considerable memory and runtime. While fixed or static pruning methods reduce computational overhead, they also risk discarding parameters essential to retrieval accuracy.
+
+In response, we propose \textbf{Dynamic Pruning}, a type of \textbf{unstructured pruning} which adaptively prunes weights based on real-time feature-importance scores. Concretely:
+\begin{itemize}
+    \item \textbf{Feature Scoring:} At each training step, the model computes importance indicators (e.g., from attention distributions) that highlight which features most strongly impact retrieval.
+    \item \textbf{Dynamic Cutoffs:} A context-dependent threshold then prunes low-importance features while preserving the most influential parameters. Specifically, weights with the smallest magnitudes (by L1 norm) are set to zero.
+    \item \textbf{Iterative Refinement:} Throughout training, the thresholds and importance metrics are continuously updated, balancing the removal of redundant weights with the retention of crucial ones.
+\end{itemize}
+By removing less critical parameters, unstructured pruning substantially lowers memory and computational demands without degrading retrieval performance. In our experiments, Dynamic Pruning—used alongside Mixed Precision and Gradient Accumulation—shortened training time from over five hours to just 45 minutes for each epoch.
+
+\subsubsection{LoRA: Parameter-Efficient Fine-Tuning}
+Fine-tuning large T5 models from scratch can be expensive in both time and GPU memory. To alleviate this, we decided to employ \textbf{LoRA} (Low-Rank Adaptation). In a nutshell, we have that LoRA \emph{freezes} the original T5 weights and injects small low-rank adapter modules into the attention layers. During training, only these adapter weights are updated—dramatically cutting the total trainable parameter count and thus reducing memory needs and speeding up convergence.
+
+\subsubsection{QLoRA: 4-bit Quantization for T5}
+Although LoRA alone is parameter-efficient, large T5 models can still require substantial GPU memory. We decide therefore to also provide for an alternative model version (in addition to the basic one and to the LORA version), to further minimize memory consumption, we apply \textbf{QLoRA}, which additionally quantizes the T5 weights to a \emph{4-bit} format using \textit{bitsandbytes} library. In this setup, the base T5 is compressed into 4-bit precision, while LoRA’s low-rank adapters remain at higher precision for effective fine-tuning. This model, further reduce memory requirements and training overhead without sacrificing retrieval accuracy.
