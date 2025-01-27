@@ -11,7 +11,7 @@ In response, we propose \textbf{Dynamic Pruning}, a type of \textbf{unstructured
     \item \textbf{Dynamic Cutoffs:} A context-dependent threshold then prunes low-importance features while preserving the most influential parameters. Specifically, weights with the smallest magnitudes (by L1 norm) are set to zero.
     \item \textbf{Iterative Refinement:} Throughout training, the thresholds and importance metrics are continuously updated, balancing the removal of redundant weights with the retention of crucial ones.
 \end{itemize}
-By removing less critical parameters, unstructured pruning substantially lowers memory and computational demands without degrading retrieval performance. In our experiments, Dynamic Pruning—used alongside Mixed Precision and Gradient Accumulation—shortened training time from over five hours to just 45 minutes for each epoch.
+By removing less critical parameters, unstructured pruning substantially lowers memory and computational demands without degrading retrieval performance. In our experiments, Dynamic Pruning—used alongside Mixed Precision and Gradient Accumulation—shortened training time from over five hours to just 45 minutes for each epoch (considering the whole dataset). 
 
 \subsubsection{LoRA: Parameter-Efficient Fine-Tuning}
 Fine-tuning large T5 models from scratch can be expensive in both time and GPU memory. To alleviate this, we decided to employ \textbf{LoRA} (Low-Rank Adaptation). In a nutshell, we have that LoRA \emph{freezes} the original T5 weights and injects small low-rank adapter modules into the attention layers. During training, only these adapter weights are updated—dramatically cutting the total trainable parameter count and thus reducing memory needs and speeding up convergence.
