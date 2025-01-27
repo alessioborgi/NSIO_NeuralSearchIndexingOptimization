@@ -1,18 +1,39 @@
-Trainable Information Retrieval (IR) systems are characterized by two phases:
+% Trainable Information Retrieval (IR) systems are characterized by two phases:
+% \begin{itemize}
+%   \item \textbf{Indexing: }Indexing of a corpus, which means to associate the content of each document with its corresponding docid.
+%   \item \textbf{Retrieval: }Learn how to retrieve efficiently from the index, which means to 
+% \end{itemize}
+% Instead of using Contrastive Learning based Dual Encoders, the paper proposes an architecture which directly map a query \textbf{q} to a relevant docid \textbf{j}. This architecture, called DSI, it's implemented with a pre-trained Transformer and all the information of the corpus are encoded within the parameters of the language model. When we are doing inference, the give to the trained model a text query as input and we expect to obtain a docid as output. If we are interested in a ranked list of relevant documents we can also use Beam Search. Our DSI system uses standard model inference to map from encodings to docids, instead of learning internal representations that optimize a search procedure. DSI can be extended in different ways:
+% \begin{itemize}
+%   \item \textbf{Document representation: }there are several ways to represent documents (e.g. full text, bag-of-words representations, ...)
+%   \item \textbf{Docid representation: }(e.g. unique tokens, structured semantic docids, text strings, ...)
+% \end{itemize}
+
+% \subsection{Indexing Methods}
+% Given a sequence of document tokens, the model is trained to predict the docids. There can be used different strategies:
+% \begin{itemize}
+%   \item \textbf{Inputs2Target}: 
+%   \item \textbf{Targets2Inputs}:
+%   \item \textbf{Bidirectional}: 
+% \end{itemize}
+
+
+
+
+
+Traditional information retrieval (IR) approaches, which often rely on static indexing and matching techniques, struggle to scale in dynamic, large and complex data environments. Neural Information Retrieval (NIR) methods, that leverages deep learning, have emerged allwing models to learn semantic representations and retrieve information with huge results. Among these, the Differentiable Search Index (DSI) stands out as a neural inverted index that maps document identifiers to semantic embeddings, offering an alternative to traditional IR paradigms.
+
+
+The original DSI model faces challenges in adapting to diverse data distributions and resource constraints (DAVVEROOOOOO??????). To address these limitations, we enhance the DSI framework through both data augmentation and model optimization techniques. First, we introduce three novel data augmentation strategies tailored to enrich the input data: (1) Num2Word, which transforms numerical values into their word equivalents to standardize representation and improve semantic understanding; (2) stopwords removal, which eliminates non-informative words to focus on meaningful content; and (3) POS-MLM, a masked language modeling approach guided by part-of-speech tags to reinforce syntactic and semantic learning.
+
+In parallel, we develop and evaluate four advanced variants of the DSI model to optimize its performance further. These include:
 \begin{itemize}
-  \item \textbf{Indexing: }Indexing of a corpus, which means to associate the content of each document with its corresponding docid.
-  \item \textbf{Retrieval: }Learn how to retrieve efficiently from the index, which means to 
-\end{itemize}
-Instead of using Contrastive Learning based Dual Encoders, the paper proposes an architecture which directly map a query \textbf{q} to a relevant docid \textbf{j}. This architecture, called DSI, it's implemented with a pre-trained Transformer and all the information of the corpus are encoded within the parameters of the language model. When we are doing inference, the give to the trained model a text query as input and we expect to obtain a docid as output. If we are interested in a ranked list of relevant documents we can also use Beam Search. Our DSI system uses standard model inference to map from encodings to docids, instead of learning internal representations that optimize a search procedure. DSI can be extended in different ways:
-\begin{itemize}
-  \item \textbf{Document representation: }there are several ways to represent documents (e.g. full text, bag-of-words representations, ...)
-  \item \textbf{Docid representation: }(e.g. unique tokens, structured semantic docids, text strings, ...)
+    \item DSI+LoRA: Incorporating Low-Rank Adaptation (LoRA) to fine-tune model weights with minimal computational overhead.
+    \item DSI+QLoRA: Extending LoRA with quantization techniques for enhanced efficiency.
+    \item DSI+AdaLoRA: Adapting LoRA dynamically based on task-specific requirements for improved flexibility.
+    \item DSI+ConvoLoRA: Introducing convolutional layers within the LoRA framework to capture local patterns and context.
 \end{itemize}
 
-\subsection{Indexing Methods}
-Given a sequence of document tokens, the model is trained to predict the docids. There can be used different strategies:
-\begin{itemize}
-  \item \textbf{Inputs2Target}: 
-  \item \textbf{Targets2Inputs}:
-  \item \textbf{Bidirectional}: 
-\end{itemize}
+
+These enhancements will significantly improve retrieval accuracy and computational efficiency across various benchmarks. By combining innovative data augmentation techniques with parameter-efficient fine-tuning methods, our work contributes a robust and adaptable solution for modern information retrieval challenges. This Project not only advances the capabilities of neural inverted indices but also gives insights into designing scalable and resource-aware IR systems.
+

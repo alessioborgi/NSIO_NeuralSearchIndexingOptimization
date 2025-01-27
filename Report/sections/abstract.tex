@@ -1,1 +1,10 @@
-In this project report we present a novel Differentiable Search Indexing (DSI) approach. Unlike traditional contrastive learning-based dual encoders, this architecture maps a query to its relevant document identifier (docid) during inference, enabling efficient retrieval with standard model inference and optional beam search for ranking. We explore advanced indexing methods, including semantic and syntactic data augmentation techniques like stopword removal, Num2Text transformation, and POS-MLM augmentation, to enhance dataset quality. Our model innovations feature dynamic pruning for efficient training, parameter-efficient fine-tuning via LoRA, and memory optimization through QLoRA with 4-bit quantization.
+% In this project report we present a novel Differentiable Search Indexing (DSI) approach.
+% Unlike traditional contrastive learning-based dual encoders, this architecture maps a query to its 
+% relevant document identifier (docid) during inference, enabling efficient retrieval with standard model inference and optional 
+% beam search for ranking. We explore advanced indexing methods, including semantic and syntactic data augmentation techniques 
+% like stopword removal, Num2Text transformation, and POS-MLM augmentation, to enhance dataset quality. Our model innovations feature dynamic 
+% pruning for efficient training, parameter-efficient fine-tuning via LoRA, and memory optimization through QLoRA with 4-bit quantization.
+
+
+This project presents a novel approach to enhancing the Differentiable Search Index (DSI), a neural inverted index framework, by introducing three data augmentation techniques: (1) converting numerical values to words (Num2Word), (2) removing stopwords, and (3) leveraging a Part of Speech Masked Language Modeling (POS-MLM) strategy. These augmentations aim to improve the robustness and effectiveness of the DSI model in diverse retrieval scenarios. Additionally, we propose and evaluate four advanced variants of the DSI model: DSI+LoRA, DSI+QLoRA, DSI+AdaLoRA, and DSI+ConvoLoRA, which integrate parameter-efficient fine-tuning methods to optimize performance and resource utilization.
+
