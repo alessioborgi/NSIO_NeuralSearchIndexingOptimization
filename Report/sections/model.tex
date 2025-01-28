@@ -18,3 +18,17 @@ Fine-tuning large T5 models from scratch can be expensive in both time and GPU m
 
 \subsubsection{QLoRA: 4-bit Quantization for T5}
 Although LoRA alone is parameter-efficient, large T5 models can still require substantial GPU memory. We decide therefore to also provide for an alternative model version (in addition to the basic one and to the LORA version), to further minimize memory consumption, we apply \textbf{QLoRA}, which additionally quantizes the T5 weights to a \emph{4-bit} format using \textit{bitsandbytes} library. In this setup, the base T5 is compressed into 4-bit precision, while LoRA’s low-rank adapters remain at higher precision for effective fine-tuning. This model, further reduce memory requirements and training overhead without sacrificing retrieval accuracy.
+
+\subsubsection{AdaLoRA}
+In addition to the original LoRA approach and its quantized version, we explored \textit{Adaptive LoRA} (AdaLoRA) as introduced by \cite{liu2024aloraallocatinglowrankadaptation}. The fundamental idea behind AdaLoRA is to dynamically adjust the effective rank of the LoRA adapters throughout training. By starting with a higher initial rank (\texttt{init\_r}), the model first gains sufficient capacity to represent the task. After a specified warm-up period, AdaLoRA gradually prunes the less important dimensions in the low-rank matrices, converging to a smaller final rank (\texttt{target\_r}). This rank-reduction process is governed by parameters such as:
+\begin{itemize}
+    \item \textbf{\texttt{tinit}} and \textbf{\texttt{tfinal}}: defining the interval (in steps) during which the rank adaptation is active;
+    \item \textbf{\texttt{deltaT}}: controlling how frequently to update (prune or reallocate) the ranks;
+    \item \textbf{\texttt{lora\_alpha}} and \textbf{\texttt{lora\_dropout}}: same scaling and dropout parameters as standard LoRA.
+\end{itemize}
+The benefit of this method is that we can allocate sufficient capacity at the start of training, and let the model self-regularize to a much smaller final rank, thereby reducing the number of trainable parameters and mitigating overfitting. This is especially useful when dealing with large-scale models or when GPU memory is limited as in our case.
+
+\subsection{ConvLoRA (LoCon)}
+Another extension to LoRA that we investigated is \textit{ConvLoRA} \cite{zhong2024convolutionmeetsloraparameter}, sometimes referred to as LoCon. This method adds a lightweight convolutional operation to the LoRA adaptation, originally developed and thought for image-generation models (e.g., Stable Diffusion). In the NLP setting, we introduce a small depthwise convolution layer that operates across the sequence dimension, followed by a low-rank linear mapping. Finally, a scaling factor (\texttt{alpha}) and a residual connection are applied, analogous to standard LoRA.
+
+The motivation behind ConvLoRA is to allow the adapter to capture local token-level patterns more effectively than purely linear low-rank updates. The depthwise convolution can emphasize local features, potentially offering a richer representation. The rank of the linear mapping (\texttt{conv\_lora\_rank}) and the kernel size (\texttt{conv\_kernel\_size}) are hyperparameters that can be tuned. The idea is to freeze all the original transformer parameters and only training the convolutional and low-rank projection weights, preserving most of the benefits of parameter-efficient fine-tuning while enriching the local feature modeling.
