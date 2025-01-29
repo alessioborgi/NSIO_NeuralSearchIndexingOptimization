@@ -6,7 +6,7 @@ In our work, we have used the first version of the MS Marco Dataset (reference b
 \end{itemize}
 Since we are interested in the ranking of the documents, we have used the SimpleSearcher from pyserini \cite{pyserini}, in order to obtain the most relevant 1000 documents. 
 The pre-processing applied to the dataset is explained in the following subsections.
-\subsection{Tokenization}
+
 Starting from the dataset, we have computed the maximum length of the inputs of the encoder (1797) and decoder (4), which will be useful during the tokenization process. We have used the pretrained tokenizer from the small version of the T5 model (reference). Our tokenized dataset is composed only by the following parts:
 \begin{itemize}
     \item \textbf{Query}: tokenized version of the original query

@@ -74,9 +74,12 @@
 
 
 \section{Conclusion}
-In this work, we explored various Parameter-Efficient Fine-Tuning (PEFT) techniques for adapting a T5-based Dense Sparse Indexing (DSI) model to the MS-MARCO100K dataset. Our experiments evaluated LoRA, QLoRA, AdaLoRA, and ConvLoRA, assessing their efficiency in terms of trainable parameters, computational cost, and retrieval performance.
+In this work, we enhanced the Differentiable Search Index (DSI) by integrating novel data augmentation techniques and parameter-efficient fine-tuning (PEFT) methods to improve retrieval effectiveness and computational efficiency. Our augmentation strategies, including Num2Word transformation, stopword removal, and POS-MLM augmentation, enriched semantic representations, reducing noise and improving contextual understanding. 
 
-Future research will focus on extending these approaches to larger-scale retrieval datasets, exploiting additional peft methodologies further optimizing model efficiency for real-world applications.
+In parallel, we leveraged PEFT techniques such as LoRA, QLoRA, AdaLoRA, and ConvLoRA to optimize training and inference, reducing memory consumption while preserving retrieval accuracy. 
+
+Future research will focus on extending these optimizations to larger datasets, refining augmentation techniques, and exploring further parameter-efficient methodologies to enhance retrieval capabilities in real-world applications.
+
 
 
 

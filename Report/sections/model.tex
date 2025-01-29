@@ -1,8 +1,6 @@
-\subsection{Model Architecture Novelties}
-
 We adopt T5 as our core architecture, but additionally optimize training and memory usage by applying three key techniques: \textbf{Dynamic Pruning}, \textbf{LoRA}, and \textbf{QLoRA}.
 
-\subsubsection{Dynamic Pruning}
+\subsection{Dynamic Pruning}
 Large-scale DSI frameworks, especially when operating on extensive datasets like MS-MARCO, can consume considerable memory and runtime. While fixed or static pruning methods reduce computational overhead, they also risk discarding parameters essential to retrieval accuracy.
 
 In response, we propose \textbf{Dynamic Pruning}, a type of \textbf{unstructured pruning} which adaptively prunes weights based on real-time feature-importance scores. Concretely:
@@ -44,8 +42,8 @@ By removing less critical parameters, unstructured pruning substantially lowers 
     \caption{\textbf{LoRA Family Comparison} these techniques are used for efficient T5-based DSI fine-tuning.}
     \label{tab:comparison}
     \end{table*}
-    
-\subsubsection{Parameter-Efficient Fine-Tuning Techniques}
+
+\subsection{Parameter-Efficient Fine-Tuning Techniques}
 Beyond pruning, we integrate parameter-efficient fine-tuning approaches. The techniques we explored include:
 
 \begin{itemize}
@@ -58,7 +56,6 @@ Beyond pruning, we integrate parameter-efficient fine-tuning approaches. The tec
     \item \textbf{ConvLoRA (LoCon):} A variant of LoRA that incorporates a depthwise convolutional layer before applying the low-rank projection. Originally designed for image-generation models, this extension enhances local feature modeling in text-based tasks by capturing token-level dependencies. The convolutional kernel size (\texttt{conv\_kernel\_size}) and rank (\texttt{conv\_lora\_rank}) are key hyperparameters that control the adaptation behavior.
 \end{itemize}
 
-\subsubsection{Comparison of Techniques}
 Table~\ref{tab:comparison} summarizes the main differences among the proposed methods for memory-efficient fine-tuning and optimization. We highlight key ideas, how each method impacts model parameters and memory usage, and any special advantages or considerations.
 
 
