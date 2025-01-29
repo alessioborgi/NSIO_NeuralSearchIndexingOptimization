@@ -1,4 +1,4 @@
-# 🔍 Neural Search Indexing Optimization: Integrating Augmentation and PEFT for Efficient Retrieval
+# 🔍 NSIO: Neural Search Indexing Optimization: Integrating Augmentation and PEFT for Efficient Retrieval
 
 #### Copyright © 2025 Alessio Borgi, Eugenio Bugli, Damiano Imola
 
