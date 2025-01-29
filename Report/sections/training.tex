@@ -1,12 +1,12 @@
-The fine-tuning experiments were conducted using \textbf{PyTorch Lightning}, in which we employed a training process through modular training steps, automatic checkpointing, and mixed precision computation. For all experiments, we set the LoRA rank to 8 and used a scaling factor (\(\alpha\)) of 32. A dropout rate of 0.1 was applied to prevent overfitting. The batch size was adjusted dynamically based on GPU memory availability, while gradient accumulation was set to 4 batches to balance memory constraints and efficient optimization. The model was trained using mixed 16-bit precision (FP16) to improve memory efficiency. We used the AdamW optimizer with a learning rate of \(5 \times 10^{-5}\), and the training was limited to a maximum of 5 epochs. To prevent overfitting, early stopping was enabled, terminating training after 3 consecutive epochs without validation loss improvement. 
-
+The fine-tuning experiments were conducted using PyTorch Lightning, in which we employed automatic checkpointing (every 4 batches), and mixed precision computation. For all experiments, we set the LoRA rank to 8 and used a scaling factor (\(\alpha\)) of 32. A dropout rate of 0.1 was applied to prevent overfitting. The model was trained using mixed 16-bit precision (FP16) to improve memory efficiency. We used the AdamW optimizer with a learning rate of \(5 \times 10^{-5}\), and the training was limited to a maximum of 5 epochs for obvious limitation in power. To prevent overfitting, early stopping was enabled (although not used here), terminating training after 3 consecutive epochs without validation loss improvement. 
 To evaluate the efficiency of different fine-tuning techniques, we measured the number of trainable parameters, the total parameter count (including frozen parameters), the training time per 1,000 samples, and the validation time per 1,000 samples.
 
-\begin{table*}[ht]
+\begin{table}[ht]
     \centering
-    \begin{tabular}{lrrrr}
+    \small
+    \begin{tabular}{l|rrrrr}
     \toprule
-    \textbf{Technique} & \textbf{\#Trainable Params} & \textbf{\#Total Params} & \textbf{Train Time (1K-samples)} & \textbf{Val Time (1K-samples)} & \textbf{Model Param Size} \\
+    \textbf{Technique} & \textbf{\#Trainable Params} & \textbf{\#Total Params} & \textbf{TrainTime (1K)} & \textbf{ValTime (1K)} & \textbf{ModelSize} \\
     \midrule
     LoRA            & -M & -M & - & - & - \\
     QLoRA           & -M & -M & - & - & - \\
@@ -14,9 +14,8 @@ To evaluate the efficiency of different fine-tuning techniques, we measured the 
     ConvLoRA (LoCon)& -M & -M & - & - & - \\
     \bottomrule
     \end{tabular}
-    \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: In the following table, we make a comparison of training/validation times over 1000 samples, total parameter counts and number of trainable parameters, across different fine-tuning techniques.}
+    \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: A comparison of training/validation times over 1000 samples, total parameter counts, and number of trainable parameters across different fine-tuning techniques.}
     \label{tab:results_comparison}
-\end{table*}
+\end{table}
 
-Overall, our results suggest that LoRA-based fine-tuning strategies provide an efficient and scalable way to fine-tune transformer models for Dense Sparse Indexing (DSI). While standard LoRA remains a strong baseline, adaptive methods like AdaLoRA and ConvLoRA offer additional flexibility in rank optimization and local feature representation. Future work will explore their impact on larger-scale datasets and more complex retrieval scenarios.
 
