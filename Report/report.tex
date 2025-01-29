@@ -2,7 +2,7 @@
 
 
 \usepackage{PRIMEarxiv}
-
+\usepackage{todonotes}
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage{hyperref}       % hyperlinks
@@ -26,10 +26,8 @@
 \rhead{ \textit{ }} 
 
 % Update your Headers here
-\fancyhead[LO]{Running Title for Header}
+\fancyhead[LO]{Neural Search Indexing Optimization: Integrating Augmentation and PEFT for Efficient Retrieval}
 % \fancyhead[RE]{Firstauthor and Secondauthor} % Firstauthor et al. if more than 2 - must use \documentclass[twoside]{article}
-
-
 
   
 %% Title
@@ -52,7 +50,7 @@
 
 
 % keywords can be removed
-\keywords{DSI \and POS-MLM \and QLoRA \and Dynamic Pruning \and LoRA}
+\keywords{DSI \and POS-MLM \and Dynamic Pruning \and LoRA \and QLoRA \and AdaLoRA \and ConvoLoRA}
 
 \section{Introduction} \subfile{sections/intro.tex}
 \section{Dataset} \subfile{sections/data.tex}
@@ -62,8 +60,8 @@
 
 \begin{figure}
   \centering
-  \fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
+  \includegraphics[width=\textwidth]{figs/dataset.png}
+  \caption{Data Augmentation Pipeline.}
   \label{fig:fig1}
 \end{figure}
 
