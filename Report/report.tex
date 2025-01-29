@@ -79,11 +79,9 @@ See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of th
 
 
 \section{Conclusion}
-In this work, we explored various \textbf{Parameter-Efficient Fine-Tuning (PEFT)} techniques for adapting a T5-based \textit{Dense Sparse Indexing} (DSI) model to the MS-MARCO100K dataset. Our experiments evaluated \textbf{LoRA}, \textbf{QLoRA}, \textbf{AdaLoRA}, and \textbf{ConvLoRA}, assessing their efficiency in terms of trainable parameters, computational cost, and retrieval performance.
+In this work, we explored various Parameter-Efficient Fine-Tuning (PEFT) techniques for adapting a T5-based Dense Sparse Indexing (DSI) model to the MS-MARCO100K dataset. Our experiments evaluated LoRA, QLoRA, AdaLoRA, and ConvLoRA, assessing their efficiency in terms of trainable parameters, computational cost, and retrieval performance.
 
-Our findings indicate that \textbf{LoRA} serves as a strong baseline, significantly reducing memory requirements while maintaining performance. \textbf{QLoRA} further improves efficiency by applying \textbf{4-bit quantization}, making it particularly beneficial for memory-constrained environments. \textbf{AdaLoRA} dynamically adjusts rank allocation, striking a balance between performance and efficiency by progressively pruning less important low-rank dimensions. Finally, \textbf{ConvLoRA} introduces depthwise convolutions, enhancing local feature interactions at the cost of slightly increased computational overhead.
-
-Overall, our results demonstrate that LoRA-based fine-tuning strategies provide an effective and scalable approach for adapting large language models to retrieval tasks. Adaptive methods such as \textbf{AdaLoRA} and \textbf{ConvLoRA} introduce further flexibility, optimizing rank allocation and feature extraction. Future research will focus on extending these approaches to larger-scale retrieval datasets and further optimizing model efficiency for real-world applications.
+Future research will focus on extending these approaches to larger-scale retrieval datasets, exploiting additional peft methodologies further optimizing model efficiency for real-world applications.
 
 
 
