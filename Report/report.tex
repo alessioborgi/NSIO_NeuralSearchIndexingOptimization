@@ -65,23 +65,6 @@
 \section{Model} \subfile{sections/model.tex}
 \section{Training and Results} \subfile{sections/training.tex}
 
-The documentation for \verb+natbib+ may be found at
-\begin{center}
-  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-Of note is the command \verb+\citet+, which produces citations
-appropriate for use in inline text.  For example,
-\begin{verbatim}
-   \citet{hasselmo} investigated\dots
-\end{verbatim}
-produces
-\begin{quote}
-  Hasselmo, et al.\ (1995) investigated\dots
-\end{quote}
-
-\begin{center}
-  \url{https://www.ctan.org/pkg/booktabs}
-\end{center}
 
 
 \subsection{Figures} 
@@ -94,31 +77,15 @@ See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of th
   \label{fig:fig1}
 \end{figure}
 
-\subsection{Tables}
-See awesome Table~\ref{tab:table}.
-
-\begin{table}
- \caption{Sample table title}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
-  \end{tabular}
-  \label{tab:table}
-\end{table}
 
 \section{Conclusion}
-Your conclusion here
+In this work, we explored various \textbf{Parameter-Efficient Fine-Tuning (PEFT)} techniques for adapting a T5-based \textit{Dense Sparse Indexing} (DSI) model to the MS-MARCO100K dataset. Our experiments evaluated \textbf{LoRA}, \textbf{QLoRA}, \textbf{AdaLoRA}, and \textbf{ConvLoRA}, assessing their efficiency in terms of trainable parameters, computational cost, and retrieval performance.
 
-\section*{Acknowledgments}
-This was was supported in part by......
+Our findings indicate that \textbf{LoRA} serves as a strong baseline, significantly reducing memory requirements while maintaining performance. \textbf{QLoRA} further improves efficiency by applying \textbf{4-bit quantization}, making it particularly beneficial for memory-constrained environments. \textbf{AdaLoRA} dynamically adjusts rank allocation, striking a balance between performance and efficiency by progressively pruning less important low-rank dimensions. Finally, \textbf{ConvLoRA} introduces depthwise convolutions, enhancing local feature interactions at the cost of slightly increased computational overhead.
+
+Overall, our results demonstrate that LoRA-based fine-tuning strategies provide an effective and scalable approach for adapting large language models to retrieval tasks. Adaptive methods such as \textbf{AdaLoRA} and \textbf{ConvLoRA} introduce further flexibility, optimizing rank allocation and feature extraction. Future research will focus on extending these approaches to larger-scale retrieval datasets and further optimizing model efficiency for real-world applications.
+
+
 
 %Bibliography
 \bibliographystyle{unsrt}  

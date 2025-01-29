@@ -34,3 +34,39 @@ Another extension to LoRA that we investigated is \textit{ConvLoRA} \cite{zhong2
 The motivation behind ConvLoRA is to allow the adapter to capture local token-level patterns more effectively than purely linear low-rank updates. The depthwise convolution can emphasize local features, potentially offering a richer representation. The rank of the linear mapping (\texttt{conv\_lora\_rank}) and the kernel size (\texttt{conv\_kernel\_size}) are hyperparameters that can be tuned. The idea is to freeze all the original transformer parameters and only training the convolutional and low-rank projection weights, preserving most of the benefits of parameter-efficient fine-tuning while enriching the local feature modeling.
 
 % \includegraphics[width=\textwidth]{DS1_1.png}
+\subsubsection{Comparison of Techniques}
+In summary, we have that Table~\ref{tab:comparison} summarizes the main differences among the proposed methods for memory-efficient fine-tuning and optimization. We highlight key ideas, how each method impacts model parameters and memory usage, and any special advantages or considerations.
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{p{2.1cm}p{2.8cm}p{3.0cm}p{5.5cm}}
+\toprule
+\textbf{Technique} & \textbf{Key Idea} & \textbf{Memory/Params Impact} & \textbf{Advantages / Notes} \\
+\midrule
+
+\textbf{LoRA} 
+& Inserts low-rank adapters in the attention layers
+& Very few additional trainable parameters 
+& Parameter-efficient fine-tuning; simpler training, fast convergence. \\
+
+\textbf{QLoRA} 
+& Quantizes base model to 4-bit and LoRA
+& Smaller memory footprint than LoRA 
+& Maintains higher-precision adapters for fine-tuning while cutting base-model GPU usage. \\
+
+\textbf{AdaLoRA} 
+& Dynamically adjusts the rank of the LoRA adapters 
+& Freezes base  and variable-rank adapters 
+& Allows higher rank initially for better capacity, then prunes rank to mitigate overfitting.  \\
+
+\textbf{ConvLoRA (LoCon)} 
+& Depthwise convolution layer before low-rank projection 
+& Small convolution and low-rank adapter 
+& Better local token-level pattern modeling than LoRA \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{LoRA Family Comparison} these techniques are used for efficient T5-based DSI fine-tuning.}
+\label{tab:comparison}
+\end{table*}
+
+
