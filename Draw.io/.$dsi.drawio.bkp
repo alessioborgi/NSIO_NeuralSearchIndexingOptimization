@@ -1,0 +1,163 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+  <diagram name="Pagina-1" id="7XpyLbtJi4zl0HCKEVlX">
+    <mxGraphModel dx="2405" dy="2220" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Id2394FtnwDAoE4dz5dc-89" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="-220" y="210" width="380" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="2-D7dfdSGoYTUV1REhOz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-230" y="85" as="sourcePoint" />
+            <mxPoint x="-420" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-86" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=4;" parent="1" vertex="1">
+          <mxGeometry x="-220" width="1100" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-20" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;strokeWidth=4;" parent="1" vertex="1">
+          <mxGeometry x="520" y="690" width="120" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-25" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 20px;&quot;&gt;`V_{789}`&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="520" y="490" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-24" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 20px;&quot;&gt;`V_{456}`&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="520" y="405" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-23" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 20px;&quot;&gt;`V_{123}`&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="520" y="322.5" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-3" value="Query 123" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="-200" y="260" width="340" height="100" as="geometry">
+            <mxRectangle x="-280" y="200" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-4" value="Who is the author of tipping the velvet?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Id2394FtnwDAoE4dz5dc-3" vertex="1">
+          <mxGeometry x="55" y="50" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-6" value="Doc 456 (Good Document)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;glass=0;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="-200" y="400" width="340" height="100" as="geometry">
+            <mxRectangle x="-280" y="200" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-7" value="&lt;div&gt;… As part of her research … Sarah Waters came across&lt;/div&gt;&lt;div&gt;the title of her first book, Tipping the Velvet. …&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Id2394FtnwDAoE4dz5dc-6" vertex="1">
+          <mxGeometry x="10" y="40" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-15" value="Doc 789 (Bad Document)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="-200" y="540" width="340" height="100" as="geometry">
+            <mxRectangle x="-280" y="200" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-16" value="&lt;div&gt;…. Keeley Hawes is known for her roleas Kitty Butler in&lt;/div&gt;&lt;div&gt;Tipping the Velvet, …&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Id2394FtnwDAoE4dz5dc-15" vertex="1">
+          <mxGeometry x="10" y="40" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-79" value="Query 123" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="-200" y="49" width="340" height="100" as="geometry">
+            <mxRectangle x="-280" y="200" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-80" value="Who is the author of tipping the velvet?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Id2394FtnwDAoE4dz5dc-79" vertex="1">
+          <mxGeometry x="55" y="50" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-81" value="Doc 456 (Good Document)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="160" y="49" width="340" height="100" as="geometry">
+            <mxRectangle x="-280" y="200" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-82" value="&lt;div&gt;… As part of her research … Sarah Waters came across&lt;/div&gt;&lt;div&gt;the title of her first book, Tipping the Velvet. …&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Id2394FtnwDAoE4dz5dc-81" vertex="1">
+          <mxGeometry x="10" y="40" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-83" value="Doc 789 (Bad Document)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="520" y="49" width="340" height="100" as="geometry">
+            <mxRectangle x="-280" y="200" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-84" value="&lt;div&gt;…. Keeley Hawes is known for her roleas Kitty Butler in&lt;/div&gt;&lt;div&gt;Tipping the Velvet, …&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Id2394FtnwDAoE4dz5dc-83" vertex="1">
+          <mxGeometry x="10" y="40" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-87" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;ORIGINAL DATASET&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="245" y="10" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-93" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;AUGMENTED DATASET&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-132.5" y="220" width="205" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-D7dfdSGoYTUV1REhOz-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-230" y="411.67" as="targetPoint" />
+            <mxPoint x="-310" y="411.67" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-101" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=4;" parent="1" vertex="1">
+          <mxGeometry x="-520" y="240" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-102" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Augmentation&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-475" y="250" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-115" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="434.32" as="sourcePoint" />
+            <mxPoint x="300" y="434.17" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-116" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;dashed=1;dashPattern=1 1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="434.52000000000004" as="sourcePoint" />
+            <mxPoint x="690" y="434.52000000000004" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-117" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;dashed=1;dashPattern=1 1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="434.83000000000004" as="sourcePoint" />
+            <mxPoint x="490" y="434.83000000000004" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Id2394FtnwDAoE4dz5dc-118" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;dashed=1;dashPattern=1 1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="830" y="434.52000000000004" as="sourcePoint" />
+            <mxPoint x="880" y="434.52000000000004" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2-D7dfdSGoYTUV1REhOz-3" value="Num2Word" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#36393d;" parent="1" vertex="1">
+          <mxGeometry x="-500" y="300" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2-D7dfdSGoYTUV1REhOz-4" value="POS-MLM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
+          <mxGeometry x="-500" y="382.5" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2-D7dfdSGoYTUV1REhOz-5" value="POS-MLM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="1" vertex="1">
+          <mxGeometry x="-500" y="462.5" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2-D7dfdSGoYTUV1REhOz-6" value="`f_theta`" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" parent="1" vertex="1">
+          <mxGeometry x="335" y="610" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-16" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="940" y="330" width="120" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-17" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="955" y="500" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-18" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="955" y="420" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-19" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="955" y="340" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-20" value="`Doc_{123}`" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="980" y="357.5" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-21" value="`Doc_{456}`" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="980" y="437.5" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-22" value="`Doc_{789}`" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="980" y="517.5" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-25" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;`f_theta`&lt;/span&gt;" style="triangle;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="320" y="380" width="105" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="FZtMLzsmXkgukoDw3E-y-28" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;`g_varphi`&lt;/span&gt;" style="triangle;whiteSpace=wrap;html=1;align=center;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="710" y="380" width="105" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
