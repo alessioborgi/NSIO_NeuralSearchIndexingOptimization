@@ -1,5 +1,5 @@
 The fine-tuning experiments were conducted using PyTorch Lightning, in which we employed automatic checkpointing (every 4 batches), and mixed precision computation. For all experiments, we set the LoRA rank to 8 and used a scaling factor (\(\alpha\)) of 32. A dropout rate of 0.1 was applied to prevent overfitting. The model was trained using mixed 16-bit precision (FP16) to improve memory efficiency. We used the AdamW optimizer with a learning rate of \(5 \times 10^{-5}\), and the training was limited to a maximum of 5 epochs for obvious limitation in power. To prevent overfitting, early stopping was enabled (although not used here), terminating training after 5 consecutive epochs without validation loss improvement. 
-To evaluate the efficiency of different fine-tuning techniques, we measured the number of trainable parameters, the total parameter count (including frozen parameters), the training time per 1,000 samples, and the validation time per 1,000 samples.
+To evaluate the efficiency of different fine-tuning techniques, we measured the number of trainable parameters, total parameters, training time per 1K samples, GPU memory usage, model size, and validation loss. The results are summarized in Table~\ref{tab:results_comparison}.
 
 \begin{table}[ht]
     \centering
@@ -15,8 +15,17 @@ To evaluate the efficiency of different fine-tuning techniques, we measured the 
     ConvLoRA (LoCon)& 6.1K & 60.5M & 2m 30s & 2.2GB & 242.05MB & 19.45\\
     \bottomrule
     \end{tabular}
-    \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: A comparison of training/validation times over 1000 samples, total parameter counts, and number of trainable parameters across different fine-tuning techniques.}
+    \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: Metrics include trainable parameters, total parameters, training time per 1K samples, GPU usage, model size, and validation loss across Base T5, LoRA, QLoRA, ALoRA, and ConvLoRA (LoCon).}
     \label{tab:results_comparison}
 \end{table}
 
+Observing the results in Table~\ref{tab:results_comparison}, we can draw the following conclusions:
+\begin{itemize}
+    \item \textbf{Trainable Parameters:} LoRA, QLoRA, and ConvLoRA significantly reduce the number of trainable parameters compared to Base T5.
+    \item \textbf{Total Parameters:} QLoRA, thanks to Quantization, achieves the lowest total parameter count.
+    \item \textbf{Training Time:} ConvLoRA (LoCon) exhibits the fastest training time, followed by LoRA, making them ideal for quicker fine-tuning.
+    \item \textbf{GPU Usage:} ConvLoRA also requires the least GPU memory, making it highly suitable for resource-constrained environments.
+    \item \textbf{Model Size:} QLoRA results in the smallest model size, thanks to the 25\% of model quantization.
+    \item \textbf{Validation Loss:} LoRA and QLoRA achieve the lowest validation loss, indicating better fine-tuning performance compared to Base T5 and ConvLoRA, which have higher validation losses (even if the latter has way too less parameters).
+\end{itemize}
 
