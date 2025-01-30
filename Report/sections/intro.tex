@@ -5,10 +5,10 @@ The original DSI model faces challenges in adapting to diverse data distribution
 
 In parallel, we develop and evaluate four advanced variants of the DSI model to optimize its performance further. These include:
 \begin{itemize}
-    \item DSI+LoRA: Incorporating Low-Rank Adaptation (LoRA) to fine-tune model weights with minimal computational overhead.
-    \item DSI+QLoRA: Extending LoRA with quantization techniques for enhanced efficiency.
-    \item DSI+AdaLoRA: Adapting LoRA dynamically based on task-specific requirements for improved flexibility.
-    \item DSI+ConvoLoRA: Introducing convolutional layers within the LoRA framework to capture local patterns and context.
+    \item DSI+LoRA: Incorporating Low-Rank Adaptation (LoRA)\cite{hu2021loralowrankadaptationlarge} to fine-tune model weights with minimal computational overhead.
+    \item DSI+QLoRA: Extending LoRA with quantization techniques \cite{dettmers2023qloraefficientfinetuningquantized} for enhanced efficiency.
+    \item DSI+ALoRA: Adapting LoRA \cite{liu2024aloraallocatinglowrankadaptation} dynamically based on task-specific requirements for improved flexibility.
+    \item DSI+ConvoLoRA: Introducing convolutional layers within the LoRA \cite{aleem2024convloraadabnbaseddomain} framework to capture local patterns and context.
 \end{itemize}
 
 The DSI model operates within a \textbf{multi-task learning} framework, where \textbf{indexing} and \textbf{retrieval} are treated as distinct yet complementary tasks. This dual-task approach enhances model robustness, mutually reinforcing the system's overall effectiveness.
