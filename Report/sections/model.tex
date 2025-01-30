@@ -1,4 +1,4 @@
-We adopt T5 as our core architecture, but additionally optimize training and memory usage by applying 5 key techniques: \textbf{Dynamic Pruning}, \textbf{LoRA}\cite{hu2021loralowrankadaptationlarge}, and \textbf{QLoRA}\cite{dettmers2023qloraefficientfinetuningquantized}, \textbf{ALoRA}\cite{liu2024aloraallocatinglowrankadaptation}, and \textbf{ConvLoRA}\cite{aleem2024convloraadabnbaseddomain}. 
+We adopt T5 as our core architecture, but additionally optimize training and memory usage by applying 5 key techniques: \textbf{Dynamic Pruning}, \textbf{LoRA}\cite{hu2021loralowrankadaptationlarge}, and \textbf{QLoRA}\cite{dettmers2023qloraefficientfinetuningquantized}, \textbf{AdaLoRA}\cite{liu2024aloraallocatinglowrankadaptation}, and \textbf{ConvLoRA}\cite{aleem2024convloraadabnbaseddomain}. 
 
 \subsection{Dynamic Pruning}
 Large-scale DSI frameworks, especially when operating on extensive datasets like MS-MARCO\cite{bajaj2018msmarcohumangenerated}, can consume considerable memory and runtime. While fixed or static pruning methods reduce computational overhead, they also risk discarding parameters essential to retrieval accuracy.
@@ -28,7 +28,7 @@ By removing less critical parameters, unstructured pruning substantially lowers 
     & Smaller memory footprint than LoRA 
     & Maintains higher-precision adapters for fine-tuning while cutting base-model GPU usage. \\
     
-    \textbf{ALoRA} 
+    \textbf{AdaLoRA} 
     & Dynamically adjusts the rank of the LoRA adapters 
     & Freezes base  and variable-rank adapters 
     & Allows higher rank initially for better capacity, then prunes rank to mitigate overfitting.  \\
@@ -51,7 +51,7 @@ Beyond pruning, we integrate parameter-efficient fine-tuning approaches. The tec
 
     \item \textbf{QLoRA (4-bit Quantization for T5):} To further minimize memory consumption, we apply \textbf{QLoRA}, which quantizes the T5 weights to a \emph{4-bit} format (i.e., quantizing 25\%) using the \textit{bitsandbytes} library. In this setup, the base T5 is compressed into 4-bit precision, while LoRA’s low-rank adapters remain at higher precision for effective fine-tuning. This setup reduces memory requirements and training overhead without sacrificing retrieval accuracy.
 
-    \item \textbf{ALoRA (Adaptive LoRA):} Unlike standard LoRA, which uses a fixed rank, ALoRA dynamically adjusts the rank of the LoRA adapters during training. Initially, the model allocates a higher rank (\texttt{init\_r}) to capture sufficient task-specific information. After a warm-up phase, the method prunes less important dimensions, gradually reducing the rank (\texttt{target\_r}). This process minimizes trainable parameters while mitigating overfitting, making it ideal for large-scale models with constrained GPU memory.
+    \item \textbf{AdaLoRA (Adaptive LoRA):} Unlike standard LoRA, which uses a fixed rank, AdaLoRA dynamically adjusts the rank of the LoRA adapters during training. Initially, the model allocates a higher rank (\texttt{init\_r}) to capture sufficient task-specific information. After a warm-up phase, the method prunes less important dimensions, gradually reducing the rank (\texttt{target\_r}). This process minimizes trainable parameters while mitigating overfitting, making it ideal for large-scale models with constrained GPU memory.
 
     \item \textbf{ConvLoRA (LoCon):} A variant of LoRA that incorporates a depthwise convolutional layer before applying the low-rank projection. Originally designed for image-generation models, this extension enhances local feature modeling in text-based tasks by capturing token-level dependencies. The convolutional kernel size (\texttt{conv\_kernel\_size}) and rank (\texttt{conv\_lora\_rank}) are key hyperparameters that control the adaptation behavior.
 \end{itemize}

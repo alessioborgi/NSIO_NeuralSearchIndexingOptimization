@@ -10,11 +10,11 @@ The fine-tuning experiments were conducted using PyTorch Lightning, in which we 
     Base T5         & 60.5M & 60.5M & 8m & 10.7GB & 242.03MB & 20.75\\
     LoRA            & 294K & 60.8M & 3m & 8.6GB & 243.20MB & 3.70\\
     QLoRA           & 294K & 45.1M & 5m & 8.4GB & 180.29MB & 3.89\\
-    ALoRA           & 1.6M & 62.1M & 10m & 9.1GB & 248.52MB & 8.93\\
+    AdaLoRA           & 1.6M & 62.1M & 10m & 9.1GB & 248.52MB & 8.93\\
     ConvLoRA (LoCon)& 6.1K & 60.5M & 2m 30s & 2.2GB & 242.05MB & 19.45\\
     \bottomrule
     \end{tabular}
-    \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: Metrics include trainable parameters, total parameters, training time per 1K samples, GPU usage, model size, and validation loss across Base T5, LoRA, QLoRA, ALoRA, and ConvLoRA (LoCon).}
+    \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: Metrics include trainable parameters, total parameters, training time per 1K samples, GPU usage, model size, and validation loss across Base T5, LoRA, QLoRA, AdaLoRA, and ConvLoRA (LoCon).}
     \label{tab:results_comparison}
 \end{table}
 
