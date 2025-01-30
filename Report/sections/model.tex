@@ -7,7 +7,7 @@ In response, we propose \textbf{Dynamic Pruning}, a type of \textbf{unstructured
 \begin{itemize}
     \item \textbf{Feature Scoring:} At each training step, the model computes importance indicators (e.g., from attention distributions) that highlight which features most strongly impact retrieval.
     \item \textbf{Dynamic Cutoffs:} A context-dependent threshold then prunes low-importance features while preserving the most influential parameters. Specifically, weights with the smallest magnitudes (by L1 norm) are set to zero.
-    \item \textbf{Iterative Refinement:} Throughout training, the thresholds and importance metrics are continuously updated, balancing the removal of redundant weights with the retention of crucial ones.
+    \item \textbf{Iterative Refinement:} Throughout training, the thresholds and importance metrics are continuously updated, balancing the removal of redundant weights with the retention of crucial ones. 
 \end{itemize}
 By removing less critical parameters, unstructured pruning substantially lowers memory and computational demands without degrading retrieval performance. In our experiments, Dynamic Pruning—used alongside Mixed Precision and Gradient Accumulation—shortened training time from over five hours to just 45 minutes for each epoch (considering the whole dataset). 
 
