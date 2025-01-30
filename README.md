@@ -18,23 +18,4 @@ This repository provides an optimized implementation of **Differentiable Search 
 
 🚀 Our approach enables **faster fine-tuning, reduced memory consumption, and enhanced retrieval performance** for large-scale search indexing tasks.  
 
----
-
-## 📦 Installation  
-
-### 1️⃣ Clone the Repository  
-```bash
-git clone https://github.com/alessioborgi/DSI-Augmentation-FineTuning.git
-cd DSI-Augmentation-FineTuning
-```
-### 2️⃣ Set Up Virtual Environment
-```bash
-python -m venv dsi_env
-source dsi_env/bin/activate  # On Windows: dsi_env\Scripts\activate
-```
-
-### 3️⃣ Install Dependencies
-```bash
-pip install -r requirements.txt
-```
 
