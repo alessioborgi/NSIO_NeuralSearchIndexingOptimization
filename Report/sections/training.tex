@@ -6,12 +6,13 @@ To evaluate the efficiency of different fine-tuning techniques, we measured the 
     \small
     \begin{tabular}{l|rrrrr}
     \toprule
-    \textbf{Technique} & \textbf{\#Trainable Params} & \textbf{\#Total Params} & \textbf{TrainTime (1K)} & \textbf{ValTime (1K)} & \textbf{ModelSize} \\
+    \textbf{Technique} & \textbf{\#Trainable Params} & \textbf{\#Total Params} & \textbf{Time (1K)} & \textbf{GPU Usage} & \textbf{ModelsSize} & \textbf{ValLoss}\\
     \midrule
-    LoRA            & -M & -M & - & - & - \\
-    QLoRA           & -M & -M & - & - & - \\
-    AdaLoRA         & -M & -M & - & - & - \\
-    ConvLoRA (LoCon)& -M & -M & - & - & - \\
+    Base T5         & 60.5M & 60.5M & 8m & 10.7GB & 242.03MB & 20.75\\
+    LoRA            & 294K & 60.8M & 3m & 8.6GB & 243.20MB & 3.70\\
+    QLoRA           & 294K & 45.1M & 5m & 8.4GB & 180.29MB & 3.89\\
+    ALoRA           & 1.6M & 62.1M & 10m & 9.1GB & 248.52MB & 8.93\\
+    ConvLoRA (LoCon)& 6.1K & 60.5M & 2m 30s & 2.2GB & 242.05MB & 19.45\\
     \bottomrule
     \end{tabular}
     \caption{\textbf{MS-MARCO100K Fine-Tuning Techniques Comparison}: A comparison of training/validation times over 1000 samples, total parameter counts, and number of trainable parameters across different fine-tuning techniques.}
