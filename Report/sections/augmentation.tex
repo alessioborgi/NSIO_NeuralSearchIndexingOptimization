@@ -14,7 +14,7 @@ DSI models under examination often struggle to bridge the gap between document s
 
 \textbf{POS-MLM Augmentation} synthesizes syntactic insights from POS tagging with the context-driven capabilities of MLM, consisting in:
 \begin{itemize}
-    \item \textbf{POS Tagging:} Using spaCy (a lexical and syntactic parser), we assign part-of-speech labels (NOUN, VERB, ADJ, etc.) to each token. POS tags are used to identify tokens that have key syntactic roles, enabling a structured roadmap for masking.
+    \item \textbf{POS Tagging:} Using spaCy \cite{honnibal2017spacy} (a lexical and syntactic parser), we assign part-of-speech labels (NOUN, VERB, ADJ, etc.) to each token. POS tags are used to identify tokens that have key syntactic roles, enabling a structured roadmap for masking.
     \item \textbf{Selective Token Masking:} Tokens holding key syntactic roles (here, verbs) are replaced with a placeholder token (e.g., \texttt{[MASK]}), so that the LM must focus on reconstructing them.
     \item \textbf{Predictive Training (MLM):} The masked sequences are processed by a pretrained Transformer model (e.g., \texttt{bert-base-uncased}), which infers the masked tokens. By leveraging the broader context, MLM reconstructs syntactic structures and promotes a deeper understanding of semantic relationships.
 \end{itemize}

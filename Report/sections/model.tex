@@ -1,4 +1,4 @@
-We adopt T5 as our core architecture, but additionally optimize training and memory usage by applying three key techniques: \textbf{Dynamic Pruning}, \textbf{LoRA}, and \textbf{QLoRA}.
+We adopt T5 as our core architecture, but additionally optimize training and memory usage by applying 5 key techniques: \textbf{Dynamic Pruning}, \textbf{LoRA}\cite{hu2021loralowrankadaptationlarge}, and \textbf{QLoRA}\cite{dettmers2023qloraefficientfinetuningquantized}, \textbf{AdaLoRA}\cite{liu2024aloraallocatinglowrankadaptation}, and \textbf{ConvLoRA}\cite{aleem2024convloraadabnbaseddomain}. 
 
 \subsection{Dynamic Pruning}
 Large-scale DSI frameworks, especially when operating on extensive datasets like MS-MARCO, can consume considerable memory and runtime. While fixed or static pruning methods reduce computational overhead, they also risk discarding parameters essential to retrieval accuracy.
