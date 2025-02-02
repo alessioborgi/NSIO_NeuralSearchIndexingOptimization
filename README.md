@@ -6,7 +6,7 @@
 This repository provides an optimized implementation of **Differentiable Search Indexing (DSI)**, integrating **data augmentation techniques** and **parameter-efficient fine-tuning (PEFT) methods** to improve retrieval accuracy and computational efficiency. 
 
 <div style="text-align: center">
-  <img src="images/model_architecture" alt="Screenshot" width="1200"/>
+  <img src="imgs/model_architecture" alt="Screenshot" width="1200"/>
 </div>
 
 
@@ -18,7 +18,7 @@ This repository provides an optimized implementation of **Differentiable Search 
 - **POS-MLM Augmentation:** Combines part-of-speech tagging with masked language modeling to enhance context understanding.
 
 <div style="text-align: center">
-  <img src="images/augmentation" alt="Screenshot" width="1200"/>
+  <img src="imgs/augmentation" alt="Screenshot" width="1200"/>
 </div>
 
 
